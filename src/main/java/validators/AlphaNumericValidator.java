@@ -17,7 +17,11 @@ public class AlphaNumericValidator implements ConstraintValidator<AlphaNumeric, 
 
     @Override
     public boolean isValid(String string, ConstraintValidatorContext constraintValidatorContext) {
-        if(string == null) return false;
+        if(thereIsNoString(string)) return false;
         return required && Pattern.matches(MATCH_ON_ALPHA_NUMERIC_REGEX, string);
+    }
+
+    private boolean thereIsNoString(String string){
+        return string == null;
     }
 }

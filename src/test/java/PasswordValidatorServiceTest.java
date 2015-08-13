@@ -1,3 +1,4 @@
+import annotations.ValidPassword;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
 import javax.validation.Validator;
 
 
@@ -21,6 +23,9 @@ public class PasswordValidatorServiceTest {
 
     @Autowired
     private PasswordValidatorService service;
+
+    @Autowired
+    private Validator validator;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
